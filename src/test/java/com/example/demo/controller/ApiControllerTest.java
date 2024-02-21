@@ -29,12 +29,13 @@ class ApiControllerTest {
     @BeforeEach
     public void setUp() {
         executor = Executors.newFixedThreadPool(5);
+     // Mocking calculatorService
+        when(calculatorService.add(2, 3)).thenReturn(5);
     }
 
     @Test
     public void testAddNumbers() throws InterruptedException {
-        // Mocking calculatorService
-        when(calculatorService.add(2, 3)).thenReturn(5);
+        
 
         // Appel de la méthode du contrôleur
         ResponseEntity<Integer> response = apiController.addNumbers(2, 3);
@@ -47,8 +48,6 @@ class ApiControllerTest {
     @Test
     public void testAddNumbersWithDelay() throws InterruptedException {
         for (int i = 0; i < 5; i++) {
-            // Mocking calculatorService
-            when(calculatorService.add(2, 3)).thenReturn(5);
 
             // Appel de la méthode du contrôleur
             ResponseEntity<Integer> response = apiController.addNumbers(2, 3);
@@ -65,8 +64,7 @@ class ApiControllerTest {
         Future<?>[] futures = new Future[5];
 
         for (int i = 0; i < 5; i++) {
-            // Mocking calculatorService
-            when(calculatorService.add(2, 3)).thenReturn(5);
+
             futures[i] = executor.submit(() -> {
                 // Appel de la méthode du contrôleur
                 ResponseEntity<Integer> response = null;

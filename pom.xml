@@ -8,11 +8,11 @@
         <version>2.7.17</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.astrelya</groupId>
+    <artifactId>perf</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>demo</description>
+    <name>perf-api</name>
+    <description>Kata Perf</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
